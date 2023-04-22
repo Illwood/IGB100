@@ -17,9 +17,6 @@ public class MoveStalk : MonoBehaviour
     void Start()
     {
         rigidBody = GetComponent<Rigidbody>();
-
-        lastMouseX = Screen.width / 2;
-        lastMouseY = Screen.height / 2;
     }
 
     // Update is called once per frame
@@ -30,9 +27,6 @@ public class MoveStalk : MonoBehaviour
 
         // Rotate every frame depending on input
         RotateUpdate();
-
-        lastMouseX = Input.mousePosition.x;
-        lastMouseY = Input.mousePosition.y;
     }
 
     private void RotateUpdate()
@@ -48,14 +42,14 @@ public class MoveStalk : MonoBehaviour
         // WASD Input
         //
         // Turn Left
-        if (Input.GetKey("q"))
+        if (Input.GetKey("a"))
         {
             this.transform.Rotate(turnLeft * rotateSpeed * Time.fixedDeltaTime);
             Debug.Log("Left_Key_Rotate");
         }
 
         // Turn Right
-        if (Input.GetKey("e"))
+        if (Input.GetKey("d"))
         {
             this.transform.Rotate(turnRight * rotateSpeed * Time.fixedDeltaTime);
             Debug.Log("Right_Key_Rotate");
@@ -76,45 +70,45 @@ public class MoveStalk : MonoBehaviour
         }
 
         // Spin Left
-        if (Input.GetKey("a"))
+        if (Input.GetKey("q"))
         {
             this.transform.Rotate(spinLeft * rotateSpeed * Time.fixedDeltaTime);
             Debug.Log("Left_Spin_Key_Rotate");
         }
 
         // Spin Right
-        if (Input.GetKey("d"))
+        if (Input.GetKey("e"))
         {
             this.transform.Rotate(spinRight * rotateSpeed * Time.fixedDeltaTime);
             Debug.Log("Right_Spin_Key_Rotate");
         }
 
         // Mouse Input (Basic)
-        // (Based on if mouse is 7/16 or 9/16 of width/height)
+        // (Based on if mouse is 5/16 or 11/16 of width/height)
         //
         // Turn Left
-        if (Input.mousePosition.x < (7 * (Screen.width / 16)))
+        if (Input.mousePosition.x < (5 * (Screen.width / 16)))
         {
             this.transform.Rotate(turnLeft * rotateSpeed * Time.fixedDeltaTime);
             Debug.Log("Left_Mouse_Rotate");
         }
 
         // Turn Right
-        if (Input.mousePosition.x > (9 * (Screen.width / 16)))
+        if (Input.mousePosition.x > (11 * (Screen.width / 16)))
         {
             this.transform.Rotate(turnRight * rotateSpeed * Time.fixedDeltaTime);
             Debug.Log("Right_Mouse_Rotate");
         }
 
         // Turn Down
-        if (Input.mousePosition.y < (7 * (Screen.height / 16)))
+        if (Input.mousePosition.y < (5 * (Screen.height / 16)))
         {
             this.transform.Rotate(turnDown * rotateSpeed * Time.fixedDeltaTime);
             Debug.Log("Down_Mouse_Rotate");
         }
 
         // Turn Up
-        if (Input.mousePosition.y > (9 * (Screen.height / 16)))
+        if (Input.mousePosition.y > (11 * (Screen.height / 16)))
         {
             this.transform.Rotate(turnUp * rotateSpeed * Time.fixedDeltaTime);
             Debug.Log("Up_Mouse_Rotate");
