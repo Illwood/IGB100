@@ -11,7 +11,7 @@ public class MoveStalk : MonoBehaviour
     private float lastMouseX;
     private float lastMouseY;
 
-    //public float rotateAccel = 0.1f;
+    public bool boosting = false;
 
     // Start is called before the first frame update
     void Start()
@@ -23,7 +23,16 @@ public class MoveStalk : MonoBehaviour
     void Update()
     {
         // Move upwards every frame
-        rigidBody.velocity = speed * Time.fixedDeltaTime * transform.forward;
+        if (Input.GetKey (KeyCode.LeftShift) || Input.GetKey (KeyCode.Space))
+        {
+            boosting = true;
+            rigidBody.velocity = speed * Time.fixedDeltaTime * transform.forward * 2;
+        }
+        else
+        {
+            boosting = false;
+            rigidBody.velocity = speed * Time.fixedDeltaTime * transform.forward;
+        }
 
         // Rotate every frame depending on input
         RotateUpdate();
