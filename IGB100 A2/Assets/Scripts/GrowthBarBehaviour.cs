@@ -1,37 +1,35 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UIElements;
+using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class GrowthBarBehaviour : MonoBehaviour
 {
     public float health = 100.0f;
-    public float healthMax = 100.0f;
+    public float healthRate = 0.01f;
 
-    //public MoveStalk movestalk;
-    //public Slider growthBar;
+    public MoveStalk movestalk;
+    public Slider growthBar;
 
     // Start is called before the first frame update
     void Start()
     {
-        //growthBar = GetComponent<Slider>();
+        growthBar = this.GetComponent<Slider>();
 
     }
 
     // Update is called once per frame
     void Update()
     {
-        /*
-        if (movestalk.boosting == true)
+        health -= healthRate;
+        growthBar.value = health;
+
+        if (health <= 0)
         {
-            health -= 0.5f;
-            growthBar.value = (health / healthMax);
+            string currentSceneName = SceneManager.GetActiveScene().name;
+            SceneManager.LoadScene(currentSceneName);
         }
-        else
-        {
-            health -= 0.25f;
-            growthBar.value = (health / healthMax);
-        }
-        */
+
     }
 }
