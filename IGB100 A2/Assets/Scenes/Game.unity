@@ -397,9 +397,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 200
-  rotateSpeed: 18
+  rotateSpeed: 25
   boosting: 0
   growthBar: {fileID: 1975459316}
+  growthDepleteRate: 0.03
 --- !u!114 &610644406
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1484,7 +1485,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 100
-  healthRate: 0.01
+  healthRate: 0.03
   movestalk: {fileID: 0}
   growthBar: {fileID: 0}
 --- !u!1001 &2130833498

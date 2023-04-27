@@ -119,7 +119,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6b98f17b7c6dce14cb47a9a2dfb65954, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timeAliveRate: 5
+  timeAliveRate: 3
   warningAlpha: {r: 0, g: 0, b: 0, a: 0}
   sunBeam: {fileID: 0}
   playerTargetPos: {fileID: 0}

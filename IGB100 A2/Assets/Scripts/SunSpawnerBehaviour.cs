@@ -25,7 +25,7 @@ public class SunSpawnerBehaviour : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        timeAlive += Time.fixedDeltaTime;
+        timeAlive += Time.deltaTime;
 
         warningAlpha.a += 0.03f;
         GetComponent<SpriteRenderer>().color = warningAlpha;

@@ -20,9 +20,9 @@ public class WaveEnemySpawner : MonoBehaviour
 
         rainCloud = Resources.Load<GameObject>("RainCloud");
 
-        for (int i = 1; i < 4; i++)
+        for (int i = 1; i < 9; i++)
         {
-            rainPos = new Vector3(Random.Range(-25, 25), (70 * i), Random.Range(-25, 25));
+            rainPos = new Vector3(Random.Range(-25, 25), (120 * i), Random.Range(-25, 25));
             Instantiate(rainCloud, rainPos, Quaternion.identity);
         }
     }
@@ -30,7 +30,7 @@ public class WaveEnemySpawner : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        sunSpawnTimer += Time.fixedDeltaTime;
+        sunSpawnTimer += Time.deltaTime;
 
         if (sunSpawnTimer >= sunSpawnRate)
         {

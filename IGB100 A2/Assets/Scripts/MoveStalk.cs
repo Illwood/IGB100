@@ -14,6 +14,7 @@ public class MoveStalk : MonoBehaviour
     public bool boosting = false;
 
     public GrowthBarBehaviour growthBar;
+    public float growthDepleteRate = 0.03f;
 
     // Start is called before the first frame update
     void Start()
@@ -29,13 +30,13 @@ public class MoveStalk : MonoBehaviour
         if (Input.GetKey (KeyCode.LeftShift) || Input.GetKey (KeyCode.Space))
         {
             boosting = true;
-            growthBar.healthRate = 0.02f;
+            growthBar.healthRate = growthDepleteRate * 2;
             rigidBody.velocity = speed * Time.fixedDeltaTime * transform.forward * 2;
         }
         else
         {
             boosting = false;
-            growthBar.healthRate = 0.01f;
+            growthBar.healthRate = growthDepleteRate;
             rigidBody.velocity = speed * Time.fixedDeltaTime * transform.forward;
         }
 
